@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!--<link rel="icon" href="http://getbootstrap.com/favicon.ico">-->
+
+    <title>Supporting material for the article</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap-3.3.2-dist/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="index_arquivos/justified-nav.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+   
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+   <script type='text/javascript' src='bootstrap-3.3.2-dist/js/jquery.min.js'></script>
+    
+  <script type="text/javascript">
+    jQuery(document).ready(function($) { 
+    $(".scroll").click(function(event){        
+        event.preventDefault();
+        $('html,body').animate({scrollTop:$(this.hash).offset().top}, 400);
+        $('.active').removeClass('active');
+        $(this).parent().addClass('active');
+    });
+    });
+  </script>
+
+  <script type="text/javascript">
+    $(function() {
+        $(window).scroll(function(){
+
+            var topo = $('.jumbotron').height() + 81; // altura do topo
+            var scrollTop = $(window).scrollTop(); // qto foi rolado a barra
+            var tamPagina = $(document).height(); // altura da página
+            var larPagina = $(document).width(); // altura da página
+            var larguraMenu = $('#menu').width();
+
+            if((2 * larguraMenu) < larPagina){ //movimenta o menu apenas se o modo mobile não estiver ativo
+
+              if(scrollTop > topo){
+                  $('#menu').css({'width' : larguraMenu+'px', 'position' : 'absolute', 'z-index':'9','margin-top' : scrollTop - (topo-5)});
+              }else{
+                  $('#menu').css({'position' : 'relative', 'margin-top' : 0});
+              }               
+            }
+
+        });
+    });
+  </script>
+
+  </head>
+
+  <body id="topo">
+
+    <div class="container">
+      <!--
+      <div class="masthead">
+        <h3 class="text-muted">Project name</h3>
+        <nav>
+          <ul class="nav nav-justified">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Downloads</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+      </div> -->
+
+      <!-- Jumbotron -->
+      <div class="jumbotron">
+        <p class="creditos">Supporting material for the paper</p>
+        <h3>Are Developers Aware of the Architectural Impact of Their Changes?</h3>
+        <hr />
+        <p class="text">By <a href="http://www0.cs.ucl.ac.uk/staff/m.paixao/" target="_blank">Matheus Paixao</a>, <a href="http://www0.cs.ucl.ac.uk/staff/j.krinke/index.html" target="_blank">Jens Krinke</a>, <a href="https://dklab.net/" target="_blank">DongGyun Han</a>, <a href="http://www0.cs.ucl.ac.uk/staff/C.Ragkhitwetsagul/" target="_blank">Chaiyong Ragkhitwetsagul</a> and <a href="http://www0.cs.ucl.ac.uk/staff/M.Harman/" target="_blank">Mark Harman</a>
+      </div>
+
+
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-lg-2">
+          
+          
+            <ul id="menu" class="nav nav-pills nav-stacked bg-info">
+                  <li class="active"><a href="#topo" class="scroll"><span class="glyphicon glyphicon-home"></span>  Contents</a></li>
+                  <li><a href="#abstract" class="scroll"><i class="fa fa-list-alt fa-fw"></i>1 - Abstract</a></li>
+                  <li><a href="#datasets" class="scroll"><i class="fa fa-file-o fa-fw"></i>2 - Code Reviews Datasets</a></li>
+                  <li><a href="#results" class="scroll"><i class="fa fa-bar-chart-o fa-fw"></i>3 - Structural Architectures Dataset</a></li>
+            </ul><br/>
+        
+        </div>
+        <div class="col-lg-10">
+
+          <h2 id="abstract">1 - Abstract</h2>
+          <p>
+            Although considered one of the most important
+            decisions in a software development lifecycle, empirical evidence
+            on how developers perform and perceive architectural changes is
+            still scarce. Given the large implications of architectural decisions,
+            we do not know whether developers are aware of their changes’
+            impact on the software’s architecture, whether awareness leads
+            to better changes, and whether automatically making developers
+            aware would prevent degradation. Therefore, we use code review
+            data of 4 open source systems to investigate the intent and
+            awareness of developers when performing changes. We extracted
+            8,900 reviews for which the commits are available. 6,011 of the
+            commits have changes in their computed architectural metrics,
+            and 1,060 present significant changes to the architecture. We
+            manually inspected all reviews for commits with significant
+            changes and found that only in 26% of the time developers
+            are discussing the impact of their changes on the architectural
+            structure, suggesting a lack of awareness. Finally, we observed
+            that developers tend to be more aware of the architectural impact
+            of their changes when the architectural structure is improved,
+            suggesting that developers should be automatically made aware
+            when their changes degrade the architectural structure.
+          </p>
+          <p><b>Keywords:</b> Software Modularisation, Software Evolution, Multiobjective Search.
+
+          </p>
+          <hr/>
+         
+         <h2 id="datasets">2 - Code Reviews Datasets</h2>
+          <p>
+               For each system studied in the paper we provide a CSV file. For each review we provide: 
+               <ul>
+                 <li>Review ID on Gerrit</li>
+                   <li>URL for the webview of the review</li>
+                     <li>ID of the commit before the review</li>
+                     <li>ID of the commit after the review</li>
+                     <li>Change in cohesion and coupling metrics for the system before and after the review</li>
+                     <li>The manual classification regarding the intent of the review and the architectural awareness of developers</li>
+                     </ul>
+
+               Download the CSV files for <a href="files/egit.csv">egit</a>, <a href="files/egit.csv">linuxtools</a>, <a href="files/egit.csv">couchbase-java-client</a> and <a href="files/egit.csv">couchbase-jvm-core</a>.
+               <br><br>
+
+               In addition, to support replication of the results for the reviews in which the webview is no longer available, we provide the description and comments of all reviews as separate <a href="files/reviews_files.zip">files</a>.
+           </p> 
+           <hr/>  
+
+           <h2 id="results">3 - Structural Architectures Dataset</h2>
+               For each review of each system, we extracted the structural architecture of the system before and after each review. This dataset can be downloaded <a href="https://drive.google.com/file/d/0B3ntlMWdCTHjUUVZUHd1VHdsS28/view" target="_blank">here</a>. 
+
+      <!-- Site footer -->
+      <footer class="footer">
+        <p>August 2017 (last update: August 2017) </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="index_arquivos/ie10-viewport-bug-workaround.js"></script>
+  
+
+</body></html>

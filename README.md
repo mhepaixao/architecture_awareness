@@ -1,0 +1,1 @@
+Supporting web page for the paper "Are Developers Aware of the Architectural Impact of Their Changes?" published on the 32nd IEEE/ACM International Conference on Automated Software Engineering, ASE'17
